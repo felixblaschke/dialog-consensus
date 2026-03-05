@@ -13,6 +13,7 @@ description: Erstelle und pflege eine Dialog-Markdown-Datei fuer kollaborative D
 - Halte Verlauf und Konsens fuer andere Modelle eindeutig lesbar.
 - Arbeite immer mit einer eindeutigen Modell-Identitaet pro Thread.
 - Halte den Konsens selbsttragend: Mit `# Ziel` plus `# Aktuelle praeferierte Loesung (Konsens)` muss die Loesung umsetzbar sein, ohne Rueckgriff auf `# Dialogprotokoll`.
+- Veraendere waehrend `dialog`, `talk`, `talkuser` und `talksummary` ausschliesslich die benannte Dialog-Markdown-Datei. Erstelle, bearbeite oder loesche keine anderen Dateien im Workspace und fuehre keine Implementierungsschritte aus, auch wenn der Konsens eine umsetzungsreife Loesung enthaelt.
 
 ## Modell-Identitaet pro Thread
 
@@ -84,6 +85,7 @@ Beispiel fuer Zielbild-Ableitung im `dialog`-Modus (ohne Analyse):
 11. Schreibe den Konsens ohne Rueckverweise wie "siehe Dialog oben"; uebernehme noetige Informationen direkt in den Konsens.
 12. Begruende Zustimmung oder Widerspruch explizit, damit andere Modelle anschliessen koennen.
 13. Erhalte bestehende Inhalte und manuelle Nutzer-Edits; entferne nichts ohne klaren Grund.
+14. Veraendere ausschliesslich die benannte Dialog-Markdown-Datei. Fuehre keine Implementierung durch, erstelle keine Code-Dateien und aendere keine anderen Workspace-Dateien, selbst wenn du dem Konsens zustimmst und die Loesung umsetzungsreif ist. Die Umsetzung erfolgt erst nach expliziter Aufforderung durch den Nutzer ausserhalb des `talk`-Workflows.
 
 ## Workflow bei "talkuser <file>"
 
