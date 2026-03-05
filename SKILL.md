@@ -63,12 +63,15 @@ DIALOG_FILE: true
 2. Erfasse das Ziel, den gesamten bisherigen Verlauf, alle Nutzerbeitraege und den aktuellen Konsens.
 3. Stelle sicher, dass dein Modellname pro Thread eindeutig ist und nicht mit bestehenden Eintraegen kollidiert.
 4. Setze dich explizit mit offenen oder neuen Nutzerbeitraegen auseinander und nimm dabei auch bereits vorhandene Modell-Antworten darauf mit in die Bewertung auf.
-5. Fuege unter `# Dialogprotokoll` einen neuen chronologischen Eintrag hinzu.
-6. Aktualisiere nach jedem Dialogschritt die Sektion `# Aktuelle praeferierte Loesung (Konsens)`.
-7. Pflege im Konsens den Block `Contents` vollstaendig: alle fuer die Loesung relevanten Ergebnisse, erzeugten Artefakte und Entscheidungsdetails muessen dort stehen (z. B. Codexizzen, Diagramme, strukturierte Ausgaben, generierte Snippets).
-8. Schreibe den Konsens ohne Rueckverweise wie "siehe Dialog oben"; uebernehme noetige Informationen direkt in den Konsens.
-9. Begruende Zustimmung oder Widerspruch explizit, damit andere Modelle anschliessen koennen.
-10. Erhalte bestehende Inhalte und manuelle Nutzer-Edits; entferne nichts ohne klaren Grund.
+5. Erfasse den Lesestand als letzten zum Analysezeitpunkt vorhandenen Protokolleintrag (`Gelesen bis`).
+6. Pruefe direkt vor dem Schreiben erneut die Datei auf neue Eintraege seit `Gelesen bis`.
+7. Wenn neue Eintraege hinzugekommen sind, validiere deine Antwort neu gegen den aktualisierten Stand und passe sie bei Bedarf an, bevor du schreibst.
+8. Fuege unter `# Dialogprotokoll` einen neuen chronologischen Eintrag hinzu.
+9. Aktualisiere nach jedem Dialogschritt die Sektion `# Aktuelle praeferierte Loesung (Konsens)`.
+10. Pflege im Konsens den Block `Contents` vollstaendig: alle fuer die Loesung relevanten Ergebnisse, erzeugten Artefakte und Entscheidungsdetails muessen dort stehen (z. B. Codexizzen, Diagramme, strukturierte Ausgaben, generierte Snippets).
+11. Schreibe den Konsens ohne Rueckverweise wie "siehe Dialog oben"; uebernehme noetige Informationen direkt in den Konsens.
+12. Begruende Zustimmung oder Widerspruch explizit, damit andere Modelle anschliessen koennen.
+13. Erhalte bestehende Inhalte und manuelle Nutzer-Edits; entferne nichts ohne klaren Grund.
 
 ## Workflow bei "talkuser <file>"
 
@@ -98,6 +101,8 @@ Nutze fuer jeden neuen Beitrag dieses Muster:
 
 Position: <kurze Kernaussage>
 Begruendung: <warum diese Position>
+Gelesen bis: <letzter beruecksichtigter Protokolleintrag, z. B. YYYY-MM-DD HH:MM TZ | Modell/User; bei leerem Protokoll: "Start der Datei">
+Revalidierung vor Schreiben: <"Keine neuen Eintraege" oder "Neue Eintraege eingearbeitet bis <...>">
 Bezug auf bisher: <Zustimmung/Kritik/Ergaenzung zu vorherigen Eintraegen>
 Vorschlag naechster Schritt: <konkrete Aktion zur Annaeherung>
 ```
@@ -140,6 +145,8 @@ Naechster Entscheidungsschritt: <wie weitere Einigung erreicht wird>
 - Mache Unsicherheiten explizit statt sie zu verstecken.
 - Formuliere Loesungsvorschlaege so, dass andere Modelle sie direkt pruefen koennen.
 - Beende jeden `talk`-Schritt mit einem aktualisierten Konsensstand.
+- Dokumentiere in jedem Modellbeitrag den Lesestand (`Gelesen bis`) fuer asynchrone/parallele Modelllaeufe.
+- Fuehre unmittelbar vor dem Schreiben eine Revalidierung gegen den neuesten Dateistand durch.
 - Schreibe `Contents` so, dass `# Ziel` + Konsens allein ausreichen, um das Problem zu loesen.
 - Behandle `talkuser`-Eintraege als verbindlichen Diskussionsinput: erst protokollieren, dann im naechsten `talk` inhaltlich auswerten.
 - Halte `talksummary` neutral, nachvollziehbar und trenne klar zwischen Einigkeit, Uneinigkeit und moeglichen Nutzer-Impulsen.

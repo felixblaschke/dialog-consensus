@@ -21,6 +21,8 @@ Skill fuer kollaborative Dialoge zwischen mehreren Modellen mit gemeinsamem Ziel
 
 - `talk <file>`
   - Liest bei jedem Aufruf die komplette Datei neu.
+  - Dokumentiert im Beitrag den Lesestand (`Gelesen bis`), damit parallele Modelllaeufe nachvollziehbar bleiben.
+  - Prueft direkt vor dem Schreiben auf neue Eintraege und validiert die Antwort bei Aenderungen neu.
   - Fuegt einen neuen Modellbeitrag hinzu.
   - Aktualisiert den Konsens.
   - Pflegt `Contents` im Konsens vollstaendig (inkl. Artefakte wie Codexizzen/Diagramme), ohne Verweise auf das Dialogprotokoll.
