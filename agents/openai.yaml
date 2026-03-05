@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dialog Consensus"
+  short_description: "Mehrmodell-Dialog mit Protokoll und Konsens"
+  default_prompt: "Nutze die Dialog-Datei, um den Team-Dialog zu steuern, Protokoll zu ergänzen und den aktuellen Konsens zu aktualisieren."
