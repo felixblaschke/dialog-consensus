@@ -55,14 +55,14 @@ DIALOG_FILE: true
 3. Wenn die Datei nicht existiert, erfrage das Ziel iterativ, bis Nutzerwunsch und Zielzustand klar und vom Nutzer bestaetigt sind.
 4. Bleibe bei `dialog` ausschliesslich in der Zielklaerung; fuehre dabei keine Analyse der Loesung durch, starte keine Rueckschau und keinen `talk`-Schritt im selben Prompt.
 5. Erstelle die Datei erst, wenn die Zielklaerung vorlaeufig abgeschlossen ist.
-5. Wenn die Datei bereits existiert, lies sie vollstaendig und pruefe den Marker `DIALOG_FILE: true`.
-6. Setze den Marker `DIALOG_FILE: true` in die erste Zeile, falls er fehlt.
-7. Stelle die Hauptsektionen in der vorgegebenen Reihenfolge sicher.
-8. Befuelle bzw. aktualisiere `# Ziel`. `# Dialogprotokoll` und `# Aktuelle praeferierte Loesung (Konsens)` bleiben leer.
-9. Schreibe bei `dialog` keinen neuen Modellbeitrag in `# Dialogprotokoll`; der erste Modellbeitrag entsteht nur durch einen expliziten spaeteren `talk <file>`-Aufruf.
-10. Fasse nach der Erstellung/Aktualisierung das aktuell erfasste Ziel kurz zusammen und frage explizit: "Ist das alles oder moechtest du das Ziel weiter verfeinern?".
-11. Wenn der Nutzer verfeinern will, bleibe im `dialog`-Modus, aktualisiere nur die Zieldefinition und frage erneut nach Bestaetigung.
-12. Wenn der Nutzer bestaetigt, dass das Ziel passt, antworte mit einem klaren naechsten Schritt und ohne Analyse mit exakt diesem Satz: "Hey, du musst jetzt `talk <Dateiname>` eingeben, um in die erste Analyse zu gehen und den ersten Dialogschritt auszufuehren.".
+6. Wenn die Datei bereits existiert, lies sie vollstaendig und pruefe den Marker `DIALOG_FILE: true`.
+7. Setze den Marker `DIALOG_FILE: true` in die erste Zeile, falls er fehlt.
+8. Stelle die Hauptsektionen in der vorgegebenen Reihenfolge sicher.
+9. Befuelle bzw. aktualisiere nur `# Ziel`; `# Dialogprotokoll` und `# Aktuelle praeferierte Loesung (Konsens)` bleiben leer.
+10. Schreibe bei `dialog` keinen neuen Modellbeitrag in `# Dialogprotokoll`; der erste Modellbeitrag entsteht nur durch einen expliziten spaeteren `talk <file>`-Aufruf.
+11. Fasse nach der Erstellung/Aktualisierung das aktuell erfasste Ziel kurz zusammen und frage explizit: "Ist das alles oder moechtest du das Ziel weiter verfeinern?".
+12. Wenn der Nutzer verfeinern will, bleibe im `dialog`-Modus, aktualisiere nur die Zieldefinition und frage erneut nach Bestaetigung.
+13. Wenn der Nutzer bestaetigt, dass das Ziel passt, antworte mit einem klaren naechsten Schritt und ohne Analyse mit exakt diesem Satz: "Hey, du musst jetzt `talk <Dateiname>` eingeben, um in die erste Analyse zu gehen und den ersten Dialogschritt auszufuehren.".
 
 Beispiel fuer Zielbild-Ableitung im `dialog`-Modus (ohne Analyse):
 - Nutzereingabe (aktionsorientiert): "Ich moechte, dass du ermittelst, woher ein 403 kommt und welche Massnahme am besten hilft."

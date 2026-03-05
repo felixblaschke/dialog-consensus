@@ -16,10 +16,11 @@ Skill fuer kollaborative Dialoge zwischen mehreren Modellen mit gemeinsamem Ziel
 ## Befehle
 
 - `dialog <file>`
+  - Uebersetzt aktionsorientierte Nutzereingaben zuerst in ein Zielbild (Zielzustand, Erwartung, Akzeptanzkriterien).
   - Klaert zuerst das Ziel (bei neuer Datei iterativ bis zur klaren Zieldefinition).
   - Erstellt oder oeffnet danach eine Dialog-Markdown-Datei.
   - Stellt Marker und Pflichtsektionen sicher.
-  - Fuehrt keine Analyse durch und startet keinen `talk`-Schritt automatisch im selben Prompt.
+  - Fuehrt keine Analyse und keine Rueckschau durch und startet keinen `talk`-Schritt automatisch im selben Prompt.
   - Fasst nach dem Erstellen/Aktualisieren das Ziel zusammen und fragt, ob noch Verfeinerungen noetig sind.
   - Gibt erst nach Nutzerbestaetigung den Hinweis auf den naechsten Befehl `talk <file>`.
 
