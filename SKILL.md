@@ -9,6 +9,7 @@ description: Erstelle und pflege eine Dialog-Markdown-Datei fuer kollaborative D
 
 - Behandle alle teilnehmenden Modelle als ein Team mit einem gemeinsamen Ziel.
 - Fuehre einen kritischen, begruendeten Dialog statt isolierter Einzelmeinungen.
+- Bewerte Loesungsvorschlaege explizit mit Pro und Contra, um die Staerken und Schwaechen jeder Option fuer das Team sichtbar zu machen.
 - Arbeite auf eine gemeinsame, bevorzugte Loesung hin.
 - Halte Verlauf und Konsens fuer andere Modelle eindeutig lesbar.
 - Arbeite immer mit einer eindeutigen Modell-Identitaet pro Thread.
@@ -72,6 +73,15 @@ Beispiel fuer Zielbild-Ableitung im `dialog`-Modus (ohne Analyse):
 
 ## Workflow bei "talk"
 
+Der `talk`-Befehl unterstuetzt eine optionale Persona:
+
+```
+talk <file>                          # ohne Persona
+talk <file> <Persona-Beschreibung>   # z. B. talk file.md Du bist ein UX Experte
+```
+
+Wenn eine Persona angegeben ist, nimm diese Rolle verstaerkt ein: argumentiere, priorisiere und bewerte aus der Perspektive dieser Expertise. Die Persona beeinflusst Schwerpunkte und Gewichtung, ersetzt aber nicht die uebrigen Regeln dieses Workflows.
+
 1. Lese bei jedem einzelnen `talk`-Aufruf die komplette Dialog-Datei erneut von oben bis unten, auch wenn unmittelbar zuvor ein anderer Beitrag geschrieben wurde.
 2. Erfasse das Ziel, den gesamten bisherigen Verlauf, alle Nutzerbeitraege und den aktuellen Konsens.
 3. Stelle sicher, dass dein Modellname pro Thread eindeutig ist und nicht mit bestehenden Eintraegen kollidiert.
@@ -84,8 +94,9 @@ Beispiel fuer Zielbild-Ableitung im `dialog`-Modus (ohne Analyse):
 10. Pflege im Konsens den Block `Contents` vollstaendig: alle fuer die Loesung relevanten Ergebnisse, erzeugten Artefakte und Entscheidungsdetails muessen dort stehen (z. B. Codexizzen, Diagramme, strukturierte Ausgaben, generierte Snippets).
 11. Schreibe den Konsens ohne Rueckverweise wie "siehe Dialog oben"; uebernehme noetige Informationen direkt in den Konsens.
 12. Begruende Zustimmung oder Widerspruch explizit, damit andere Modelle anschliessen koennen.
-13. Erhalte bestehende Inhalte und manuelle Nutzer-Edits; entferne nichts ohne klaren Grund.
-14. Veraendere ausschliesslich die benannte Dialog-Markdown-Datei. Fuehre keine Implementierung durch, erstelle keine Code-Dateien und aendere keine anderen Workspace-Dateien, selbst wenn du dem Konsens zustimmst und die Loesung umsetzungsreif ist. Die Umsetzung erfolgt erst nach expliziter Aufforderung durch den Nutzer ausserhalb des `talk`-Workflows.
+13. Bewerte jede im Raum stehende Loesungsoption explizit mit Pro- und Contra-Argumenten. Nutze dafuer den Block `Pro/Contra` im Protokolleintrag.
+14. Erhalte bestehende Inhalte und manuelle Nutzer-Edits; entferne nichts ohne klaren Grund.
+15. Veraendere ausschliesslich die benannte Dialog-Markdown-Datei. Fuehre keine Implementierung durch, erstelle keine Code-Dateien und aendere keine anderen Workspace-Dateien, selbst wenn du dem Konsens zustimmst und die Loesung umsetzungsreif ist. Die Umsetzung erfolgt erst nach expliziter Aufforderung durch den Nutzer ausserhalb des `talk`-Workflows.
 
 ## Workflow bei "talkuser <file>"
 
@@ -113,8 +124,15 @@ Nutze fuer jeden neuen Beitrag dieses Muster:
 ```markdown
 ## <YYYY-MM-DD HH:MM TZ> | <Eindeutiger Modellname pro Thread, z. B. Codex-Hans>
 
+Persona: <mitgegebene Persona oder "Keine">
 Position: <kurze Kernaussage>
 Begruendung: <warum diese Position>
+Pro/Contra:
+
+- Option A: Pro: <...> | Contra: <...>
+- Option B: Pro: <...> | Contra: <...>
+- <weitere Optionen analog>
+
 Gelesen bis: <letzter beruecksichtigter Protokolleintrag, z. B. YYYY-MM-DD HH:MM TZ | Modell/User; bei leerem Protokoll: "Start der Datei">
 Revalidierung vor Schreiben: <"Keine neuen Eintraege" oder "Neue Eintraege eingearbeitet bis <...>">
 Bezug auf bisher: <Zustimmung/Kritik/Ergaenzung zu vorherigen Eintraegen>
