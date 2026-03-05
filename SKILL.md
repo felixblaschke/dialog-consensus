@@ -18,11 +18,16 @@ description: Erstelle und pflege eine Dialog-Markdown-Datei fuer kollaborative D
 
 ## Modell-Identitaet pro Thread
 
-- Jedes Modell waehlt beim ersten Beitrag in einem Thread einen eindeutigen Alias.
-- Nutze als Muster `<Basismodell>-<Alias>`, z. B. `Codex-Hans`, `Codex-Julia`, `GPT5-Ada`.
-- Pruefe vor jedem neuen Beitrag im `# Dialogprotokoll`, welche Alias-Namen bereits verwendet werden.
-- Wenn der eigene Name bereits existiert oder unklar ist, waehle einen neuen eindeutigen Alias und bleibe danach konsistent bei diesem Namen.
-- Aendere den eigenen Alias innerhalb desselben Threads nur bei Kollision; dokumentiere die Umbenennung kurz im naechsten Beitrag.
+- Die Dialog-Datei enthaelt eine `# Teilnehmer`-Sektion, die als persistente Zuordnung zwischen der Kombination **(Basismodell + Persona)** und dem gewaelten Alias dient.
+- Dasselbe Basismodell mit unterschiedlichen Personas gilt als unterschiedlicher Teilnehmer und erhaelt jeweils einen eigenen Alias.
+- Pruefe vor jedem Beitrag die `# Teilnehmer`-Sektion, ob bereits ein Eintrag mit deinem Basismodell **und** deiner aktuellen Persona (bzw. "Keine") existiert.
+- Falls ja: Verwende exakt den dort eingetragenen Alias. Waehle keinen neuen.
+- Falls nein: Waehle einen neuen eindeutigen Alias nach dem Muster `<Basismodell>-<Alias>` (z. B. `Codex-Hans`, `GPT5-Ada`) und trage ihn zusammen mit der Persona in die `# Teilnehmer`-Sektion ein.
+- Format pro Eintrag: `- <Alias> | Modell: <Basismodell> | Persona: <Persona oder "Keine">`
+  Beispiel: `- Codex-Hans | Modell: Codex | Persona: Keine`
+  Beispiel: `- Codex-Julia | Modell: Codex | Persona: UX Experte`
+- Aendere einen einmal eingetragenen Alias nur bei echter Namenskollision; dokumentiere die Umbenennung im naechsten Beitrag und aktualisiere die `# Teilnehmer`-Sektion.
+- Die `# Teilnehmer`-Sektion ist die einzige Quelle der Wahrheit fuer die Alias-Zuordnung; ignoriere dabei, wie oft ein Alias im Protokoll vorkommt.
 
 ## Dialog-Dateiformat
 
@@ -40,6 +45,10 @@ DIALOG_FILE: true
 # Ziel
 
 <Kurze, praezise Beschreibung von Nutzerwunsch und Zielzustand>
+
+# Teilnehmer
+
+<Persistente Zuordnung (Basismodell + Persona) → Alias, ein Eintrag pro Zeile>
 
 # Dialogprotokoll
 
@@ -59,8 +68,8 @@ DIALOG_FILE: true
 5. Erstelle die Datei erst, wenn die Zielklaerung vorlaeufig abgeschlossen ist.
 6. Wenn die Datei bereits existiert, lies sie vollstaendig und pruefe den Marker `DIALOG_FILE: true`.
 7. Setze den Marker `DIALOG_FILE: true` in die erste Zeile, falls er fehlt.
-8. Stelle die Hauptsektionen in der vorgegebenen Reihenfolge sicher.
-9. Befuelle bzw. aktualisiere nur `# Ziel`; `# Dialogprotokoll` und `# Aktuelle praeferierte Loesung (Konsens)` bleiben leer.
+8. Stelle die Hauptsektionen in der vorgegebenen Reihenfolge sicher (einschliesslich `# Teilnehmer`).
+9. Befuelle bzw. aktualisiere nur `# Ziel`; `# Teilnehmer`, `# Dialogprotokoll` und `# Aktuelle praeferierte Loesung (Konsens)` bleiben leer.
 10. Schreibe bei `dialog` keinen neuen Modellbeitrag in `# Dialogprotokoll`; der erste Modellbeitrag entsteht nur durch einen expliziten spaeteren `talk <file>`-Aufruf.
 11. Fasse nach der Erstellung/Aktualisierung das aktuell erfasste Ziel kurz zusammen und frage explizit: "Ist das alles oder moechtest du das Ziel weiter verfeinern?".
 12. Wenn der Nutzer verfeinern will, bleibe im `dialog`-Modus, aktualisiere nur die Zieldefinition und frage erneut nach Bestaetigung.
@@ -84,7 +93,7 @@ Wenn eine Persona angegeben ist, nimm diese Rolle verstaerkt ein: argumentiere, 
 
 1. Lese bei jedem einzelnen `talk`-Aufruf die komplette Dialog-Datei erneut von oben bis unten, auch wenn unmittelbar zuvor ein anderer Beitrag geschrieben wurde.
 2. Erfasse das Ziel, den gesamten bisherigen Verlauf, alle Nutzerbeitraege und den aktuellen Konsens.
-3. Stelle sicher, dass dein Modellname pro Thread eindeutig ist und nicht mit bestehenden Eintraegen kollidiert.
+3. Pruefe die `# Teilnehmer`-Sektion: Suche nach einem Eintrag, der sowohl dein Basismodell als auch deine aktuelle Persona (bzw. "Keine") enthaelt. Falls vorhanden, verwende exakt den dort hinterlegten Alias. Andernfalls waehle einen neuen eindeutigen Alias und trage ihn in `# Teilnehmer` ein (Format: `- <Alias> | Modell: <Basismodell> | Persona: <Persona oder "Keine">`, z. B. `- Codex-Hans | Modell: Codex | Persona: Keine`).
 4. Setze dich explizit mit offenen oder neuen Nutzerbeitraegen auseinander und nimm dabei auch bereits vorhandene Modell-Antworten darauf mit in die Bewertung auf.
 5. Erfasse den Lesestand als letzten zum Analysezeitpunkt vorhandenen Protokolleintrag (`Gelesen bis`).
 6. Pruefe direkt vor dem Schreiben erneut die Datei auf neue Eintraege seit `Gelesen bis`.
