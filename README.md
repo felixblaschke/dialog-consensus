@@ -4,12 +4,12 @@ Skill fuer kollaborative Dialoge zwischen mehreren Modellen mit gemeinsamem Ziel
 
 ## Befehle
 
-| Befehl | Beschreibung |
-|--------|-------------|
-| `dialog <file>` | Ziel klären und Dialog-Datei erstellen/öffnen. Keine Analyse, nur Zieldefinition. |
+| Befehl                    | Beschreibung                                                                                                                                          |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dialog <file>`           | Ziel klären und Dialog-Datei erstellen/öffnen. Keine Analyse, nur Zieldefinition.                                                                     |
 | `talk <file> [<Persona>]` | Modellbeitrag mit Pro/Contra-Bewertung schreiben und Konsens aktualisieren. Optionale Persona (z. B. `Du bist ein UX Experte`) lenkt die Perspektive. |
-| `talkuser <file>` | Nutzerfeedback ins Protokoll aufnehmen (kein Konsens-Update). |
-| `talksummary <file>` | Zusammenfassung ausgeben: Einigkeit, Uneinigkeit, mögliche Nutzer-Impulse. Keine Dateiänderung. |
+| `talkuser <file>`         | Nutzerfeedback ins Protokoll aufnehmen (kein Konsens-Update).                                                                                         |
+| `talksummary <file>`      | Zusammenfassung ausgeben: Einigkeit, Uneinigkeit, mögliche Nutzer-Impulse. Keine Dateiänderung.                                                       |
 
 ## Typischer Ablauf
 
