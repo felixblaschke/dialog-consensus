@@ -62,9 +62,10 @@ DIALOG_FILE: true
 10. Schreibe bei `dialog` keinen neuen Modellbeitrag in `# Dialogprotokoll`; der erste Modellbeitrag entsteht nur durch einen expliziten spaeteren `talk <file>`-Aufruf.
 11. Fasse nach der Erstellung/Aktualisierung das aktuell erfasste Ziel kurz zusammen und frage explizit: "Ist das alles oder moechtest du das Ziel weiter verfeinern?".
 12. Wenn der Nutzer verfeinern will, bleibe im `dialog`-Modus, aktualisiere nur die Zieldefinition und frage erneut nach Bestaetigung.
-13. Wenn der Nutzer bestaetigt, dass das Ziel passt, antworte mit einem klaren naechsten Schritt und ohne Analyse mit exakt diesem Satz: "Hey, du musst jetzt `talk <Dateiname>` eingeben, um in die erste Analyse zu gehen und den ersten Dialogschritt auszufuehren.".
+13. Wenn der Nutzer bestaetigt, dass das Ziel passt, antworte mit einem klaren naechsten Schritt und ohne Analyse mit exakt diesem Satz: "Du musst jetzt `talk <Dateiname>` eingeben, um in die erste Analyse zu gehen und den ersten Dialogschritt auszufuehren.".
 
 Beispiel fuer Zielbild-Ableitung im `dialog`-Modus (ohne Analyse):
+
 - Nutzereingabe (aktionsorientiert): "Ich moechte, dass du ermittelst, woher ein 403 kommt und welche Massnahme am besten hilft."
 - Zielbild (fuer `# Ziel`): "Es liegt eine reproduzierbare Analysegrundlage fuer einen 403-Fehler im MCP-Ablauf vor, inklusive klarer Erwartung fuer Eingabevalidierung (PLZ oder Ortsname) und Entscheidungskriterien fuer die spaetere Ursachenanalyse im ersten `talk`-Schritt."
 
