@@ -16,8 +16,12 @@ Skill fuer kollaborative Dialoge zwischen mehreren Modellen mit gemeinsamem Ziel
 ## Befehle
 
 - `dialog <file>`
-  - Erstellt oder oeffnet eine Dialog-Markdown-Datei.
+  - Klaert zuerst das Ziel (bei neuer Datei iterativ bis zur klaren Zieldefinition).
+  - Erstellt oder oeffnet danach eine Dialog-Markdown-Datei.
   - Stellt Marker und Pflichtsektionen sicher.
+  - Fuehrt keine Analyse durch und startet keinen `talk`-Schritt automatisch im selben Prompt.
+  - Fasst nach dem Erstellen/Aktualisieren das Ziel zusammen und fragt, ob noch Verfeinerungen noetig sind.
+  - Gibt erst nach Nutzerbestaetigung den Hinweis auf den naechsten Befehl `talk <file>`.
 
 - `talk <file>`
   - Liest bei jedem Aufruf die komplette Datei neu.
@@ -45,8 +49,9 @@ Skill fuer kollaborative Dialoge zwischen mehreren Modellen mit gemeinsamem Ziel
 ## Typischer Ablauf
 
 1. `dialog bugfix123.md`
-2. `talk bugfix123.md`
-3. `talk bugfix123.md`
-4. `talksummary bugfix123.md`
-5. `talkuser bugfix123.md`
-6. `talk bugfix123.md`
+2. Zielzusammenfassung pruefen und bei Bedarf im selben `dialog` weiter verfeinern.
+3. Nach Bestaetigung: `talk bugfix123.md`
+4. `talk bugfix123.md`
+5. `talksummary bugfix123.md`
+6. `talkuser bugfix123.md`
+7. `talk bugfix123.md`

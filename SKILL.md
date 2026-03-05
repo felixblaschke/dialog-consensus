@@ -51,11 +51,22 @@ DIALOG_FILE: true
 ## Workflow bei "dialog <markdown-datei>"
 
 1. Erwarte das Keyword `dialog` mit einer konkreten Markdown-Datei (z. B. `dialog team-diskussion.md`).
-2. Wenn die Datei nicht existiert, erfrage das Ziel, bis Nutzerwunsch und Zielzustand klar sind, und erstelle die neue Dialog-Datei.
-3. Wenn die Datei bereits existiert, lies sie vollstaendig und pruefe den Marker `DIALOG_FILE: true`.
-4. Setze den Marker `DIALOG_FILE: true` in die erste Zeile, falls er fehlt.
-5. Stelle die Hauptsektionen in der vorgegebenen Reihenfolge sicher.
-6. Befuelle bzw. aktualisiere `# Ziel`, `# Dialogprotokoll` und `# Aktuelle praeferierte Loesung (Konsens)` passend zum Startzustand.
+2. Leite aus Nutzertext immer zuerst ein Zielbild ab statt Aktionen auszufuehren. Formulierungen wie "ermittle", "finde Ursache", "analysiere Logs" werden im `dialog`-Modus nur in Zielzustand, Erwartungen und Akzeptanzkriterien uebersetzt.
+3. Wenn die Datei nicht existiert, erfrage das Ziel iterativ, bis Nutzerwunsch und Zielzustand klar und vom Nutzer bestaetigt sind.
+4. Bleibe bei `dialog` ausschliesslich in der Zielklaerung; fuehre dabei keine Analyse der Loesung durch, starte keine Rueckschau und keinen `talk`-Schritt im selben Prompt.
+5. Erstelle die Datei erst, wenn die Zielklaerung vorlaeufig abgeschlossen ist.
+5. Wenn die Datei bereits existiert, lies sie vollstaendig und pruefe den Marker `DIALOG_FILE: true`.
+6. Setze den Marker `DIALOG_FILE: true` in die erste Zeile, falls er fehlt.
+7. Stelle die Hauptsektionen in der vorgegebenen Reihenfolge sicher.
+8. Befuelle bzw. aktualisiere `# Ziel`. `# Dialogprotokoll` und `# Aktuelle praeferierte Loesung (Konsens)` bleiben leer.
+9. Schreibe bei `dialog` keinen neuen Modellbeitrag in `# Dialogprotokoll`; der erste Modellbeitrag entsteht nur durch einen expliziten spaeteren `talk <file>`-Aufruf.
+10. Fasse nach der Erstellung/Aktualisierung das aktuell erfasste Ziel kurz zusammen und frage explizit: "Ist das alles oder moechtest du das Ziel weiter verfeinern?".
+11. Wenn der Nutzer verfeinern will, bleibe im `dialog`-Modus, aktualisiere nur die Zieldefinition und frage erneut nach Bestaetigung.
+12. Wenn der Nutzer bestaetigt, dass das Ziel passt, antworte mit einem klaren naechsten Schritt und ohne Analyse mit exakt diesem Satz: "Hey, du musst jetzt `talk <Dateiname>` eingeben, um in die erste Analyse zu gehen und den ersten Dialogschritt auszufuehren.".
+
+Beispiel fuer Zielbild-Ableitung im `dialog`-Modus (ohne Analyse):
+- Nutzereingabe (aktionsorientiert): "Ich moechte, dass du ermittelst, woher ein 403 kommt und welche Massnahme am besten hilft."
+- Zielbild (fuer `# Ziel`): "Es liegt eine reproduzierbare Analysegrundlage fuer einen 403-Fehler im MCP-Ablauf vor, inklusive klarer Erwartung fuer Eingabevalidierung (PLZ oder Ortsname) und Entscheidungskriterien fuer die spaetere Ursachenanalyse im ersten `talk`-Schritt."
 
 ## Workflow bei "talk"
 
@@ -133,10 +144,11 @@ Halte den Konsens stets aktuell und knapp:
 Stand: <aktuell bevorzugte Loesung>
 Warum bevorzugt: <wichtigste Gruende aus dem Dialog>
 Contents:
+
 - <konkreter, umsetzbarer Loesungsinhalt; keine Dialog-Referenzen>
 - <alle relevanten Artefakte, inkl. Codexizzen, Diagramme, generierter Inhalte, wenn Teil der Loesung>
-Offene Dissense: <Punkte ohne Einigung oder "Keine">
-Naechster Entscheidungsschritt: <wie weitere Einigung erreicht wird>
+  Offene Dissense: <Punkte ohne Einigung oder "Keine">
+  Naechster Entscheidungsschritt: <wie weitere Einigung erreicht wird>
 ```
 
 ## Qualitaetsregeln
