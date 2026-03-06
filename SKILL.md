@@ -143,7 +143,6 @@ Pro/Contra:
 - <weitere Optionen analog>
 
 Gelesen bis: <letzter beruecksichtigter Protokolleintrag, z. B. YYYY-MM-DD HH:MM TZ | Modell/User; bei leerem Protokoll: "Start der Datei">
-Revalidierung vor Schreiben: <"Keine neuen Eintraege" oder "Neue Eintraege eingearbeitet bis <...>">
 Bezug auf bisher: <Zustimmung/Kritik/Ergaenzung zu vorherigen Eintraegen>
 Vorschlag naechster Schritt: <konkrete Aktion zur Annaeherung>
 ```
